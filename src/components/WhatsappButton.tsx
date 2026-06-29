@@ -1,33 +1,38 @@
-import React from 'react';
-import clsx from 'clsx';
+import Image from "next/image";
+import clsx from "clsx";
 
-import { ctaDetails } from '@/data/cta';
+import { ctaDetails } from "@/data/cta";
 
-const AppStoreButton = ({ dark }: { dark?: boolean }) => {
+const WhatsappButton = ({ dark }: { dark?: boolean }) => {
   return (
-    <a href={ctaDetails.whatsappUrl}>
+    <a href={ctaDetails.whatsappUrl} className="w-full sm:w-auto">
       <button
         type="button"
         className={clsx(
-          'flex items-center justify-center min-w-[205px] mt-3 px-6 h-14 rounded-full w-full sm:w-fit',
+          "flex items-center justify-center gap-3 min-w-[205px] mt-3 px-6 h-14 rounded-full transition-colors duration-200 w-full sm:w-fit",
           {
-            'text-white bg-foreground': dark,
-            'text-foreground bg-white': !dark,
-          }
+            "bg-foreground text-white hover:bg-slate-900": dark,
+            "bg-white text-foreground hover:bg-slate-100": !dark,
+          },
         )}
       >
-        <div className="mr-3">
-          <img src="/images/wa.png" alt="WhatsApp Icon" width="30" />
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow-sm">
+          <Image
+            src="/images/wa.png"
+            alt="WhatsApp Icon"
+            width={24}
+            height={24}
+          />
         </div>
-
-        <div>
-          <div className="text-xs"></div>
-          <div className="-mt-1 font-sans text-xl font-semibold"></div>
-          Contact via WhatsApp
+        <div className="text-left">
+          <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
+            Chat
+          </p>
+          <p className="text-base font-semibold">Contact via WhatsApp</p>
         </div>
       </button>
     </a>
   );
 };
 
-export default AppStoreButton;
+export default WhatsappButton;

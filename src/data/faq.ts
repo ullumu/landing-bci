@@ -1,10 +1,9 @@
-import { IFAQ } from '@/types';
-import { siteDetails } from './siteDetails';
+import { IFAQ } from "@/types";
 
 export const faqs: IFAQ[] = [
   {
-    question: 'Question',
-    answer: 'Answer',
+    question: "Question",
+    answer: "Answer",
   },
   // {
   //     question: `Can I use ${siteDetails.siteName} on multiple devices?`,
